@@ -5,6 +5,7 @@ import tp.util.MessageObservable;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 @Component
 public class RandomMessageService {
     private final MessageObservable messageObservable;

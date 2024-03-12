@@ -1,4 +1,4 @@
-package tp;
+package tp.model;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -48,7 +48,7 @@ public class Personnage {
     public void afficherCompetences() {
         System.out.println("Compétences de " + nom + " :");
         for (Competence competence : Competence.values()) {
-            System.out.println(String.format("%-10s \t niveau : %d",competence, getNiveauCompetence(competence)));
+            System.out.println(String.format("%-10s \t niveau : %d", competence, getNiveauCompetence(competence)));
         }
     }
 

@@ -1,17 +1,17 @@
 package tp.view.component.map;
 
+import org.springframework.stereotype.Component;
+import tp.PersonnageSingleton;
+import tp.model.Personnage;
+import tp.services.WorldMapService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import org.springframework.stereotype.Component;
-import tp.Personnage;
-import tp.PersonnageSingleton;
-import tp.services.WorldMapService;
-
 @Component
-public class PixelMap extends JPanel  implements KeyListener {
+public class PixelMap extends JPanel implements KeyListener {
     private final Personnage personnage;
     private WorldMapService worldMapService;
 

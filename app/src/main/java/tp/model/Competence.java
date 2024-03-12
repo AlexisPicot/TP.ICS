@@ -1,4 +1,4 @@
-package tp;
+package tp.model;
 
 public enum Competence {
     FORCE, PERCEPTION, ENDURANCE, CHARISME, INTELLIGENCE, AGILITE, CHANCE;

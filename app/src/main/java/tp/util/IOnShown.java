@@ -1,4 +1,4 @@
-package tp;
+package tp.util;
 
 public interface IOnShown {
 

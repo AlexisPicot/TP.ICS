@@ -1,14 +1,15 @@
 package tp.services;
 
-import com.google.common.io.Resources;
 import org.springframework.stereotype.Component;
 import tp.SwingProject;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.*;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.stream.Collectors;
 
 @Component
@@ -27,7 +28,7 @@ public class WorldMapService {
         // Commande à exécuter
         URL resource = SwingProject.class.getClassLoader().getResource("generate.exe");
         String decode = URLDecoder.decode(resource.getPath(), "UTF-8");
-        var proc = Runtime.getRuntime().exec(decode+" "+Integer.valueOf((int)macAsLong).toString() );
+        var proc = Runtime.getRuntime().exec(decode + " " + Integer.valueOf((int) macAsLong).toString());
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(proc.getInputStream()));
 
@@ -35,14 +36,12 @@ public class WorldMapService {
                 InputStreamReader(proc.getErrorStream()));
 
 
-
-
-        this.map= stdInput.lines().collect(Collectors.joining("\n"));
+        this.map = stdInput.lines().collect(Collectors.joining("\n"));
         var error = stdError.lines().collect(Collectors.joining());
-        if(!error.isEmpty()) System.err.println(error);
+        if (!error.isEmpty()) System.err.println(error);
     }
 
     public String getMap() {
-        return map ;
+        return map;
     }
 }

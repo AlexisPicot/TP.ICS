@@ -1,4 +1,9 @@
-package tp;
+package tp.view.component;
+
+import tp.PersonnageSingleton;
+import tp.model.Competence;
+import tp.model.Personnage;
+import tp.util.IGameMainMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,18 +14,12 @@ import java.util.Map;
 
 
 @IGameMainMenu("Compétences")
-public class CompetencePanel extends JPanel  {
+public class CompetencePanel extends JPanel {
     private final Personnage personnage;
     private JLabel pointsRestantsLabel;
     private Map<Competence, JSpinner> competenceSpinners;
 
     private JLabel remainingPointsLabel;
-
-    private void updateSpinner(Competence competence) {
-        JSpinner jSpinner = competenceSpinners.get(competence);
-        jSpinner.setModel(new SpinnerNumberModel(personnage.getNiveauCompetence(competence), personnage.getNiveauCompetence(competence), 15, 1));
-
-    }
 
     public CompetencePanel(PersonnageSingleton personnageSingleton) {
         personnage = personnageSingleton.getInstance();
@@ -70,5 +69,11 @@ public class CompetencePanel extends JPanel  {
             }
         });
         this.add(saveButton);
+    }
+
+    private void updateSpinner(Competence competence) {
+        JSpinner jSpinner = competenceSpinners.get(competence);
+        jSpinner.setModel(new SpinnerNumberModel(personnage.getNiveauCompetence(competence), personnage.getNiveauCompetence(competence), 15, 1));
+
     }
 }

@@ -1,7 +1,7 @@
 package tp.view.component;
 
-import tp.IGameMainMenu;
-import tp.IOnShown;
+import tp.util.IGameMainMenu;
+import tp.util.IOnShown;
 import tp.view.component.map.PixelMap;
 
 import javax.swing.*;
