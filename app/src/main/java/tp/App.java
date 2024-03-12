@@ -2,7 +2,7 @@ package tp;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import tp.services.RandomMessageService;
+import tp.services.RandomMessageGenerator;
 import tp.util.IGameMainMenu;
 import tp.util.IOnShown;
 
@@ -44,6 +44,6 @@ public class App extends JFrame {
         setLocationRelativeTo(null); // Center the frame
 
         pack();
-        context.getBean(RandomMessageService.class).start();
+        context.getBean(RandomMessageGenerator.class).start();
     }
 }

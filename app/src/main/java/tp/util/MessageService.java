@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 @Component
-public class MessageObservable extends Observable {
+public class MessageService extends Observable {
     private ArrayList<String> messages = new ArrayList<>();
 
     // Ajouter un message à la liste et notifier les observateurs

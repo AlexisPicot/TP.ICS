@@ -1,18 +1,20 @@
 package tp.services;
 
 import org.springframework.stereotype.Component;
-import tp.util.MessageObservable;
+import tp.util.MessageService;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 @Component
-public class RandomMessageService {
-    private final MessageObservable messageObservable;
+public class RandomMessageGenerator {
+    private final MessageService messageService;
     private final Timer timer;
 
-    public RandomMessageService(MessageObservable messageObservable) {
-        this.messageObservable = messageObservable;
+    public RandomMessageGenerator(MessageService messageService) {
+        this.messageService = messageService;
+        messageService.addMessage("Salut");
+
         this.timer = new Timer();
     }
 
@@ -57,7 +59,7 @@ public class RandomMessageService {
                 };
                 int randomIndex = (int) (Math.random() * messages.length);
                 String randomMessage = messages[randomIndex];
-                messageObservable.addMessage(randomMessage);
+                messageService.addMessage(randomMessage);
             }
         }, 0, 5000); // Ajoute un message toutes les 5 secondes (5000 millisecondes)
     }
