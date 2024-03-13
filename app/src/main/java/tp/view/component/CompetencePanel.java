@@ -16,7 +16,6 @@ import java.util.Map;
 @IGameMainMenu("Compétences")
 public class CompetencePanel extends JPanel {
     private final Personnage personnage;
-    private JLabel pointsRestantsLabel;
     private Map<Competence, JSpinner> competenceSpinners;
 
     private JLabel remainingPointsLabel;

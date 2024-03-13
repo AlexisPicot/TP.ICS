@@ -3,7 +3,7 @@ package tp.view.component.map;
 import org.springframework.stereotype.Component;
 import tp.PersonnageSingleton;
 import tp.model.Personnage;
-import tp.services.WorldMapService;
+import tp.services.mapProvider.IWorldMapProvider;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +13,13 @@ import java.awt.event.KeyListener;
 @Component
 public class PixelMap extends JPanel implements KeyListener {
     private final Personnage personnage;
-    private WorldMapService worldMapService;
+    private IWorldMapProvider mapProviderMap;
 
 
-    public PixelMap(WorldMapService worldMapService, PersonnageSingleton personnageSingleton) {
+    public PixelMap(IWorldMapProvider mapProvider, PersonnageSingleton personnageSingleton) {
         addKeyListener(this);
         personnage = personnageSingleton.getInstance();
-        this.worldMapService = worldMapService;
+        this.mapProviderMap = mapProvider;
         this.setSize(500, 500);
         this.setPreferredSize(new Dimension(500, 500));
     }
@@ -28,7 +28,7 @@ public class PixelMap extends JPanel implements KeyListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g1 = (Graphics2D) g;
-        String asciiMap = worldMapService.getMap();
+        String asciiMap = mapProviderMap.getMap();
         int cellSize = 10; // Adjust cell size as needed
         int x = 0;
         int y = 0;
