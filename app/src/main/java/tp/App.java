@@ -2,7 +2,6 @@ package tp;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import tp.services.RandomMessageGenerator;
 import tp.util.IGameMainMenu;
 import tp.util.IOnShown;
 
@@ -10,14 +9,13 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.io.IOException;
 import java.util.Map;
 
 @Component
 public class App extends JFrame {
 
 
-    public App(ApplicationContext context) throws IOException, InstantiationException, IllegalAccessException {
+    public App(ApplicationContext context) {
 
 
         setTitle("Java Swing Project");
@@ -44,6 +42,5 @@ public class App extends JFrame {
         setLocationRelativeTo(null); // Center the frame
 
         pack();
-        context.getBean(RandomMessageGenerator.class).start();
     }
 }
